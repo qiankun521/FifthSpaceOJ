@@ -27,7 +27,7 @@ axios.interceptors.request.use(
     // 如果存在，则统一在http请求的header都加上token，这样后台根据token判断你的登录情况
     // 即使本地存在token，也有可能token是过期的，所以在响应拦截器中要对返回状态进行判断
     const token = localStorage.getItem('token')
-    if (config.url != '/api/login' && config.url != '/api/admin/login') {
+    if(config.url != '/api/login' && config.url != '/api/admin/login'){
       token && (config.headers.Authorization = token);
     }
     let type = config.url.split("/")[2];
@@ -124,8 +124,8 @@ axios.interceptors.response.use(
             }
           }
           let isAdminApi = error.response.config.url.startsWith('/api/admin');
-          store.dispatch('refreshUserAuthInfo').then((res) => {
-            if (isAdminApi) {
+          store.dispatch('refreshUserAuthInfo').then((res)=>{
+            if(isAdminApi){
               router.push("/admin")
             }
           })
@@ -198,7 +198,7 @@ const ojApi = {
     return ajax('/api/get-recent-seven-ac-rank', 'get', {
     })
   },
-  getLastWeekSubmissionStatistics(forceRefresh) {
+  getLastWeekSubmissionStatistics(forceRefresh){
     let params = {
       forceRefresh
     }
@@ -207,7 +207,7 @@ const ojApi = {
     })
   },
 
-  getRecentUpdatedProblemList() {
+  getRecentUpdatedProblemList(){
     return ajax('/api/get-recent-updated-problem', 'get', {
     })
   },
@@ -332,14 +332,8 @@ const ojApi = {
 
   // 提交评测模块
   submitCode(data) {
-    console.log(data,"::::data")
-    const tmp = {
-      ...data,
-      language: "JavaScript Node",
-      code: "console.log('" + String(data.code) + "');",
-    }
     return ajax('/api/submit-problem-judge', 'post', {
-      data: tmp
+      data
     })
   },
   // 获取单个提交的信息
@@ -352,13 +346,8 @@ const ojApi = {
   },
   // 在线调试
   submitTestJudge(data) {
-    const tmp = {
-      ...data,
-      language: "JavaScript Node",
-      code: "console.log('" + String(data.code) + "');",
-    }
     return ajax('/api/submit-problem-test-judge', 'post', {
-      data: tmp
+      data
     })
   },
   // 获取调试结果
@@ -370,11 +359,11 @@ const ojApi = {
     })
   },
   // 获取最近一次通过的代码
-  getUserLastAccepetedCode(pid, cid) {
+  getUserLastAccepetedCode(pid, cid){
     let params = {
       pid
     }
-    if (cid) {
+    if(cid){
       params.cid = cid
     }
     return ajax('/api/get-last-ac-code', 'get', {
@@ -382,8 +371,8 @@ const ojApi = {
     })
   },
   // 获取题目专注模式底部题目列表
-  getFullScreenProblemList(tid, cid) {
-    let params = { tid, cid }
+  getFullScreenProblemList(tid, cid){
+    let params = {tid, cid}
     return ajax('/api/get-full-screen-problem-list', 'get', {
       params: params
     })
@@ -584,7 +573,7 @@ const ojApi = {
   // 获取比赛题目详情
   getContestProblem(displayId, cid, gid, containsEnd = false) {
     return ajax('/api/get-contest-problem-details', 'get', {
-      params: { displayId, cid, containsEnd }
+      params: { displayId, cid, containsEnd}
     })
   },
   // 获取比赛提交列表
@@ -702,7 +691,7 @@ const ojApi = {
     })
   },
   getChangeEmailCode(email) {
-    return ajax("/api/get-change-email-code", 'get', {
+    return ajax("/api/get-change-email-code", 'get',  {
       params: { email }
     })
   },

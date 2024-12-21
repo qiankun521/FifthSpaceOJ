@@ -29,6 +29,32 @@
           type="password"
         ></el-input>
       </el-form-item>
+      <el-form-item prop="email">
+        <el-input
+          v-model="registerForm.email"
+          prefix-icon="el-icon-message"
+          :placeholder="$t('m.Register_Email')"
+          @keyup.enter.native="handleRegister"
+        >
+          <el-button
+            slot="append"
+            icon="el-icon-message"
+            type="primary"
+            @click.native="sendRegisterEmail"
+            :loading="btnEmailLoading"
+          >
+            <span v-show="btnEmailLoading">{{ countdownNum }}</span>
+          </el-button>
+        </el-input>
+      </el-form-item>
+      <el-form-item prop="code">
+        <el-input
+          v-model="registerForm.code"
+          prefix-icon="el-icon-s-check"
+          :placeholder="$t('m.Register_Email_Captcha')"
+          @keyup.enter.native="handleRegister"
+        ></el-input>
+      </el-form-item>
     </el-form>
     <div class="footer">
       <el-button

@@ -141,6 +141,6 @@ export default {
   margin: 10px;
 }
 /deep/.CodeMirror-scroll {
-  max-height: 300px;
+  max-height: 50px;
 }
 </style>

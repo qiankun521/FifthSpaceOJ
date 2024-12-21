@@ -97,11 +97,10 @@ export default {
 
 <style scoped>
 .CodeMirror {
-  height: auto !important;
+  height: 50px !important;
 }
 
 .CodeMirror-scroll {
-  min-height: 300px;
-  max-height: 600px;
+  height: 50px !important;
 }
 </style>

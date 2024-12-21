@@ -2,9 +2,9 @@ const path = require('path');
 const { config } = require("vuepress-theme-hope");
 
 module.exports = context => config({
-    title: 'HOJ',
+    title: 'FifthSpaceOJ',
     head: [
-        ['link', { rel: 'icon', href: `/logo.png` }],
+        ['link', { rel: 'icon', href: `/logo.jpg` }],
         ['meta', { name: 'theme-color', content: '#ffeded' }],
     ],
     plugins: [
@@ -18,14 +18,14 @@ module.exports = context => config({
     themeConfig: {
         logo: '/favicon.ico',
         nav: [
-            { text: 'Demo', link: 'https://hdoi.cn/' },
-            { text: 'Gitee', link: 'https://gitee.com/himitzh0730/hoj' },
+            { text: 'Demo', link: 'http://0.0.0.0/' },
+            { text: 'Gitee', link: 'http://0.0.0.0' },
         ],
         pwa: {
             cacheHTML: false,
         },
         sidebarDepth: 2,
-        hostname: 'https://hcode.top',
+        hostname: 'http://0.0.0.0',
         repo: 'HimitZH/HOJ',
         pageInfo: false,
         copyright: false,

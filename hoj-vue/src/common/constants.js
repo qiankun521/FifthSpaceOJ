@@ -163,33 +163,6 @@ export const PROBLEM_LEVEL={
 
 
 export const REMOTE_OJ = [
-  {
-    name:'HDU',
-    key:"HDU"
-  },
-  {
-    name:"Codeforces",
-    key:"CF"
-  },
-  {
-    name:"POJ",
-    key:"POJ"
-  },
-  {
-    name:"GYM",
-    key:"GYM"
-  },
-  {
-    name:"AtCoder",
-    key:"AC"
-  },
-  {
-    name:"SPOJ",
-    key:"SPOJ"
-  },{
-    name:"LIBREOJ",
-    key: "LIBRE"
-  }
 ]
 
 export const CONTEST_STATUS = {

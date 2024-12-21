@@ -98,16 +98,6 @@
             $t('m.Create_Contest')
           }}</el-menu-item>
         </el-submenu>
-
-        <el-submenu index="discussion">
-          <template slot="title"
-            ><i class="fa fa-comments fa-size" aria-hidden="true"></i
-            >{{ $t('m.Discussion') }}</template
-          >
-          <el-menu-item index="/admin/discussion">{{
-            $t('m.Discussion_Admin')
-          }}</el-menu-item>
-        </el-submenu>
       </el-menu>
       <div id="header">
         <el-row>
@@ -165,11 +155,6 @@
             ? websiteConfig.shortName + ' ADMIN'
             : 'ADMIN'
         }}
-        <mu-menu slot="right" v-show="isAuthenticated">
-          <mu-button flat @click="katexVisible = true">
-            <i class="fa fa-font katex-editor"></i>
-          </mu-button>
-        </mu-menu>
         <mu-menu
           slot="right"
           v-show="isAuthenticated"
@@ -558,7 +543,7 @@ export default {
       mobileNar: false,
       currentPath: '',
       routeList: [],
-      imgUrl: require('@/assets/backstage.png'),
+      imgUrl: require('@/assets/backstage.jpg'),
     };
   },
   components: {
